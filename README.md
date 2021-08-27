@@ -8,7 +8,7 @@
 
 ## 소개
 
-  이 Repository에서는 경향성이 있는 임의의 2차원 데이터를 400개 만들고 학습하여 이를 대표하는 선형함수(Hypothesis)를 찾는 과정을 쉽게 볼 수 있도록 만들었습니다. Linear Regression은 scikit learn와 같은 라이브러리에서 쉽게 가져와 사용할 수 있습니다. 하지만 Linear Regression을 직접 구현해보고 동작원리를 제대로 파악하지 않는다면 복잡한 상황에서 제대로 활용하기 어렵습니다.  Linear Regression의 Hypothesis를 이루는 Weight, Bias, Cost의 값의 변화를 그래프로 확인하고 나아가 이 값들을 그래프로 표현하여 값의 변화를 확인합니다. 또한 학습이 진행되는 과정에서 H(x)함수가 어떻게 변화하는지 동영상으로 기록하여 확인합니다.
+  이 Repository에서는 Logistic Regression을 구현해 볼 것입니다. 이전에 다뤘던 Linear Regression과 마찬가지로 Logistic Regression도 기존에 주어진 데이터를 대표할 수 있는 그래프를 찾아야 합니다.
 
 ## 구현과정
 
