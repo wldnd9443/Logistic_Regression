@@ -8,7 +8,8 @@
 
 ## 소개
 
-  이 Repository에서는 Logistic Regression을 구현해 볼 것입니다. 이전에 다뤘던 Linear Regression과 마찬가지로 Logistic Regression도 기존에 주어진 데이터를 대표할 수 있는 그래프를 찾아야 합니다.
+  이 Repository에서는 Logistic Regression을 구현해 볼 것입니다. 이전에 다뤘던 Linear Regression과 마찬가지로 Logistic Regression도 기존에 주어진 데이터를 대표할 수 있는 그래프를 찾아야 합니다. 그러나 Linear Regression과 달리 Logistic Regression은 데이터를 True와 False로 구분하는 classification 입니다. 학습을 완료하고 입력에 따른 결과값이 Linear와 다르게 True 나 False를  반환해야 합니다.    
+  
 
 ## 구현과정
 
