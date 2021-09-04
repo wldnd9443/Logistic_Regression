@@ -57,24 +57,9 @@ cls_unique = np.unique(Y)
 
 ```
 
-Cost function은 아래와 같이 MSE(Mean Squared Error)로 설정합니다.   
-
+Cost function은 아래와 같이 MSE(Mean Squared Error)로 설정합니다.  
 
 ![cost_function](https://user-images.githubusercontent.com/44831709/130806508-eae6ef66-e175-4f52-acbf-edba20e9aa6f.png)
-
-
-데이터를 학습니다. history 에 베타값을 저장하고 나중에 그래프를 그릴 때 활용합니다.
-
-```
-history = []
-history.append([beta_0,beta_1])
-for i in range(N_iter):
-    beta_1_next = beta_1 - alpha * (1/N) * np.sum(2*beta_1*np.square(x1) -2*x1*x2 + 2*x1*beta_0)
-    beta_0_next = beta_0 - alpha* (1/N) * np.sum(2*beta_0 - 2*x2 + 2*x1*beta_1)
-    beta_1, beta_0 = beta_1_next, beta_0_next
-    history.append([beta_0,beta_1])
-
-```
 
 
 
