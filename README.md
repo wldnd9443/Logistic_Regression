@@ -23,6 +23,10 @@ Sigmoid함수는 기본적으로 아래와 같은 모습을 합니다.
 ![Hypothesis](https://user-images.githubusercontent.com/44831709/132097332-b4ecc5fb-c60d-4481-8980-fe9590a1d9fa.png)
 ![sigmoid_default](https://user-images.githubusercontent.com/44831709/132097256-5903b99c-ecf9-4588-ad49-98cfdf9066e4.png)
 
+이 함수는 beta1과 beta0값을 수정하면서 아래와 같이 형태를 바꿀 수 있습니다. 
+
+![sig_beta1](https://user-images.githubusercontent.com/44831709/132101508-0f5065eb-b4f3-4b31-b25d-db74023c0479.png)
+![sig_beta0](https://user-images.githubusercontent.com/44831709/132101519-0ff4571f-1d37-49e5-8115-03c9c282dfff.png)
 
 
 
