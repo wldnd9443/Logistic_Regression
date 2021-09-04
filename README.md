@@ -10,39 +10,48 @@
 
   이 Repository에서는 Logistic Regression을 구현해 볼 것입니다. 이전에 다뤘던 Linear Regression과 마찬가지로 Logistic Regression도 기존에 주어진 데이터를 대표할 수 있는 그래프를 찾아야 합니다. 그러나 Linear Regression과 달리 Logistic Regression은 데이터를 True와 False로 구분하는 classification 입니다. 학습을 완료하고 입력에 따른 결과값이 Linear와 다르게 True 나 False를  반환해야 합니다.    
   
+## 이론 
+Linaer Regression은 데이터를 대표할 수 있는 직선 그래프를 찾고 이 그래프를 통해 추후에 입력값을 그래프를 통해 예측하는 방식이었습니다. 하지만 True와 False로 이루어진 Data Set에서는 직선이 이 데이터를 대표할 수는 없습니다.
 
-## 구현과정
+![linear_binary](https://user-images.githubusercontent.com/44831709/131362869-9e7e9996-ac7b-49bc-8985-62f7c9e42e80.png)   
 
-먼저 임의의 2차원 데이터를 경향성이 있도록 설정합니다.  
+이 때문에 현재의 데이터 셋을 대표할 수 있는 그래프를 고안해냅니다. 이 그래프는 Sigmoid 함수 입니다.
 
+![sigmoid_function](https://user-images.githubusercontent.com/44831709/132097048-b6b14a63-a387-4a3d-ac72-d24be17bd386.png)
+
+Sigmoid함수는 기본적으로 아래와 같은 모습을 합니다. 
+![Hypothesis](https://user-images.githubusercontent.com/44831709/132097332-b4ecc5fb-c60d-4481-8980-fe9590a1d9fa.png)
+![sigmoid_default](https://user-images.githubusercontent.com/44831709/132097256-5903b99c-ecf9-4588-ad49-98cfdf9066e4.png)
+
+
+
+
+
+## 구현 과정
+
+두 가지 경향성이 있는 임의의 2차원를 설정합니다.
 
 ```
-mat_cov = [[1,0.9],[0.9,1]]
-mu =  [4,3]
-N = 400
-X = np.random.multivariate_normal(mu, mat_cov, N)
+mat_covs = np.array([[[1,0.9],[0.9,1]],[[1,0.9],[0.9,1]]])
+# mat_covs = np.array([[[1,0.8],[0.8,1]],[[1,0.8],[0.8,1]]])
+
+mus =  np.array([[4,3],[2,3]])
+Ns = np.array([400,400])
+
+X = np.zeros((0,mus.shape[1]))
+Y = np.zeros(0)
+
+cls = 0
+for mu,mat_cov,N in zip(mus, mat_covs, Ns):
+    X_ = np.random.multivariate_normal(mu, mat_cov, N)
+    Y_ = np.ones(N)*cls
+    X = np.vstack((X,X_))
+    Y = np.hstack((Y,Y_))
+    cls += 1
+    
+cls_unique = np.unique(Y)
+
 ```
-
-Hypothesis를 다음과 같이 정의합니다.  
-
-
-![hypothesis](https://user-images.githubusercontent.com/44831709/130807611-38f189db-a6fd-441d-8457-8109efc1715e.png)
-
-
-데이터를 몇 번 학습할지, learning rate는 얼마로 할지 설정하고 임의의 베타값을 설정합니다.
-
-```
-N_iter = 1000
-N = X.shape[0]
-alpha = 0.05
-beta_0 = np.random.random()
-beta_1 = np.random.random()
-x1 = X[:,0]
-x2 = X[:,1]
-rng = np.random.default_rng(2021)
-```
-
-
 
 Cost function은 아래와 같이 MSE(Mean Squared Error)로 설정합니다.   
 
